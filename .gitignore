@@ -1,0 +1,53 @@
+# Laravel specific
+
+node_modules
+/public/storage
+/storage/*.key
+/vendor
+/storage
+bootstrap
+
+Homestead.yaml
+Homestead.json
+
+# Laravel IDE helper files
+_ide_helper.php
+_ide_helper_models.php
+_ide_helper.php.meta
+.phpstorm.meta.php
+
+# Laravel application cache and logs
+/storage/*.log
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/views
+
+# Laravel debugbar
+/debugbar
+
+# Node.js specific
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build output
+/public/hot
+/public/storage
+
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE specific files
+.vscode
+.idea
+*.sublime-workspace
+*.sublime-project
+
+# Composer specific
+/composer.lock
+
+
+

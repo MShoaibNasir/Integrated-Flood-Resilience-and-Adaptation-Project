@@ -19,12 +19,16 @@ class AreaController extends Controller
         try {
             $request->validate([
                 'name' => 'required|string|max:255',
+                'uc_id' => 'required'
             ]);
             $data = $request->all();
             $area = Area::create($data);
-            addLogs('create area named '.$request->name,Auth::user()->id);
+            addLogs('create area named ' . $request->name, Auth::user()->id);
 
-            $area = DB::table('areas')->get();
+            $area = DB::table('areas')
+                ->join('uc', 'areas.uc_id', '=', 'uc.id')
+                ->select('areas.name as name', 'areas.id as id', 'uc.name as uc_name')
+                ->get();
             return redirect()->route('area.list')->with(['area' => $area, 'success' => 'You create an area successfully!']);
 
         } catch (\Throwable $th) {
@@ -36,14 +40,18 @@ class AreaController extends Controller
     public function delete(Request $request, $id)
     {
         $area = Area::find($id);
-        addLogs('delete area named '.$area->name,Auth::user()->id);
+        addLogs('delete area named ' . $area->name, Auth::user()->id);
         $area->delete();
         return redirect()->back()->with('success', 'You Delete Area Successfully');
     }
 
     public function index()
     {
-        $area = DB::table('areas')->get();
+        $area = DB::table('areas')
+            ->join('uc', 'areas.uc_id', '=', 'uc.id')
+            ->select('areas.name as name', 'areas.id as id', 'uc.name as uc_name')
+            ->get();
+
         return view('dashboard.Area.list', ['area' => $area]);
     }
     public function edit(Request $request, $id)
@@ -58,12 +66,16 @@ class AreaController extends Controller
 
             $request->validate([
                 'name' => 'required|string|max:255',
+                'uc_id' => 'required'
             ]);
             $data = $request->all();
             $area = Area::find($id);
-            addLogs('update area named '.$area->name,Auth::user()->id);
+            addLogs('update area named ' . $area->name, Auth::user()->id);
             $area->fill($data)->save();
-            $area = DB::table('areas')->get();
+            $area = DB::table('areas')
+                ->join('uc', 'areas.uc_id', '=', 'uc.id')
+                ->select('areas.name as name', 'areas.id as id', 'uc.name as uc_name')
+                ->get();
             return redirect()->route('area.list')->with(['area' => $area, 'success' => 'You update an area successfully!']);
 
         } catch (\Throwable $th) {

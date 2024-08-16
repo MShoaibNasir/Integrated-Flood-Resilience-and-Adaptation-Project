@@ -33,6 +33,7 @@
 
 
                         <button type="submit" class="btn btn-primary">Register</button>
+                        <a onclick="history.back()" class="btn back_button">Go Back</a>
                     </form>
                 </div>
             </div>

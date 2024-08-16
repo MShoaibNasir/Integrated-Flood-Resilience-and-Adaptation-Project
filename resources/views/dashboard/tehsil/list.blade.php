@@ -1,15 +1,7 @@
 @extends('dashboard.layout.master')
 @section('content')
 
-<style>
-    td {
-        white-space: nowrap;
-    }
 
-    th {
-        white-space: nowrap;
-    }
-</style>
 <!-- Content Start -->
 <div class="content">
     <!-- Navbar Start -->
@@ -22,7 +14,7 @@
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Tehsil List</h6>
-                <a href="{{route('tehsil.create')}}">Create Tehsil</a>
+                <a href="{{route('tehsil.create')}}" class="create_button">Create Tehsil</a>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0" id="myTable">

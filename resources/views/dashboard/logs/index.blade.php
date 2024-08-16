@@ -2,15 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.min.css">
 
-<style>
-    td {
-        white-space: nowrap;
-    }
 
-    th {
-        white-space: nowrap;
-    }
-</style>
 <!-- Content Start -->
 <div class="content">
     <!-- Navbar Start -->
@@ -31,7 +23,6 @@
                         <tr class="text-dark">
                             <th scope="col">S no</th>
                             <th scope="col">Activity</th>
-                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,9 +31,7 @@
                             <tr>
                                 <td>{{$loop->index + 1}}</td>
                                 <td>{{$item->name}} {{$item->activity}}</td>
-                            <td>  
-                                <a class="btn btn-sm btn-danger" href="{{route('logs.delete',[$item->id])}}">Delete</a>
-                            </td>
+                           
                                 
                             </tr>
                         @endforeach

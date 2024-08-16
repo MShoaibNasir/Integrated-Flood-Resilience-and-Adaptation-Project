@@ -1,8 +1,5 @@
 var base_url='http://localhost/unknown/IFRAP/public/';
 $(document).ready(function () {
-   
-
-
     // filter lots
     $("#area").change(function () {
         var area = $("#area").val();

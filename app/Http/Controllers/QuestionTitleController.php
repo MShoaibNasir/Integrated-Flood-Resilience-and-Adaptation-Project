@@ -26,10 +26,10 @@ class QuestionTitleController extends Controller
             $data = $request->all();
             $data['form_id']=$id;
             $form = QuestionTitle::create($data);
-            addLogs('create Question Title named ' . $form->name, Auth::user()->id);
+            addLogs('create section named ' . $form->name, Auth::user()->id);
             $form = DB::table('question_title')
                 ->get();
-            return redirect()->route('form.view',[$id])->with(['form' => $form, 'success' => 'You Create  Form Successfully!']);
+            return redirect()->route('form.view',[$id])->with(['form' => $form, 'success' => 'You Create section Successfully!']);
 
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
@@ -40,9 +40,9 @@ class QuestionTitleController extends Controller
     public function delete(Request $request, $id)
     {
         $form = QuestionTitle::find($id);
-        addLogs('delete question title named ' . $form->name, Auth::user()->id);
+        addLogs('delete section named ' . $form->name, Auth::user()->id);
         $form->delete();
-        return redirect()->back()->with('success', 'You Delete Question Title Successfully');
+        return redirect()->back()->with('success', 'You Delete section Successfully');
     }
 
     public function index()
@@ -65,7 +65,7 @@ class QuestionTitleController extends Controller
             ]);
             $data = $request->all();
             $question_title = QuestionTitle::find($id);
-            addLogs('update Question title named ' . $question_title->name, Auth::user()->id);
+            addLogs('update section named ' . $question_title->name, Auth::user()->id);
             $question_title->fill($data)->save();
             $question_titles = DB::table('question_title')
                 ->get();

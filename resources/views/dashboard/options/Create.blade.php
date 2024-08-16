@@ -27,15 +27,7 @@
                                 <input type="text" class="form-control" name="name">
                             </div>
                             <input type="hidden" name="question_title_id" value="{{$title_id}}">
-
-                            <div class="mb-3 col-6">
-                                <label class="form-label">Type</label>
-                                <select name="type" class="form-control">
-                                    <option value="">Select Type</option>
-                                    <option value="radio">Radio Button</option>
-                                    <option value="text">Text</option>
-                                </select>
-                            </div>
+                          
                             <div class="mb-3 col-6">
                                 <label class="form-label">Placeholder</label>
                                 <input type="text" class="form-control" name="placeholder">
@@ -50,6 +42,7 @@
 
 
                         <button type="submit" class="btn btn-primary">Save</button>
+                        <a onclick="history.back()" class="btn back_button">Go Back</a>
                     </form>
                 </div>
             </div>

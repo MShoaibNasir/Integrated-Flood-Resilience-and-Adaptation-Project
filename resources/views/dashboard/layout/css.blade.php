@@ -18,5 +18,6 @@
 
 <!-- Template Stylesheet -->
 <link href="{{asset('dashboard/css/style.css')}}" rel="stylesheet">
+<link href="{{asset('dashboard\css\custom.css')}}" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="//cdn.datatables.net/2.1.3/css/dataTables.dataTables.min.css">

@@ -1,15 +1,7 @@
 @extends('dashboard.layout.master')
 @section('content')
 
-<style>
-    td {
-        white-space: nowrap;
-    }
 
-    th {
-        white-space: nowrap;
-    }
-</style>
 <!-- Content Start -->
 <div class="content">
     <!-- Navbar Start -->
@@ -21,15 +13,15 @@
     <div class="container-fluid pt-4 px-4 form_width">
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
-                <h6 class="mb-0">Question Title List</h6>
-                <a href="{{route('question.title.create',[$form_id])}}">Create Question Title</a>
+                <h2 class="mb-0">Section List</h2>
+                <a href="{{route('question.title.create',[$form_id])}}" class="create_button">Create Section</a>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0" id="myTable">
                     <thead>
                         <tr class="text-dark">
                             <th scope="col">S no</th>
-                            <th scope="col">Title Name</th>
+                            <th scope="col">Section Name</th>
                             <th scope="col">Sub Heading</th>
                             <th scope="col">Actions</th>
                         </tr>

@@ -9,7 +9,7 @@
         <div class="row g-4">
             <div class="col-sm-12 col-xl-12">
                 <div class="bg-light rounded h-100 p-4">
-                    <h6 class="mb-4">Create Question Title</h6>
+                    <h6 class="mb-4">Create Sections</h6>
                     <form method="post" action="{{route('question.title.store',[$form_id])}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -25,6 +25,7 @@
 
 
                         <button type="submit" class="btn btn-primary">create</button>
+                        <a onclick="history.back()" class="btn back_button">Go Back</a>
                     </form>
                 </div>
             </div>

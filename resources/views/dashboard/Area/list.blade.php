@@ -1,15 +1,7 @@
 @extends('dashboard.layout.master')
 @section('content')
 
-<style>
-    td {
-        white-space: nowrap;
-    }
 
-    th {
-        white-space: nowrap;
-    }
-</style>
 <!-- Content Start -->
 <div class="content">
     <!-- Navbar Start -->
@@ -21,7 +13,7 @@
         <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-4">
                 <h6 class="mb-0">Area List</h6>
-                <a href="{{route('area.create')}}">Create Area</a>
+                <a href="{{route('area.create')}}" class="create_button">Create Area</a>
             </div>
             <div class="table-responsive">
                 <table class="table text-start align-middle table-bordered table-hover mb-0" id="myTable">
@@ -29,6 +21,7 @@
                         <tr class="text-dark">
                             <th scope="col">S no</th>
                             <th scope="col">Area Name</th>
+                            <th scope="col">UC Name</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -38,6 +31,7 @@
                             <tr>
                                 <td>{{$loop->index + 1}}</td>
                                 <td>{{$item->name}}</td>
+                                <td>{{$item->uc_name}}</td>
 
                                 <td><a class="btn btn-sm btn-success" href="{{route('area.edit', [$item->id])}}">Edit</a>
                                     <a class="btn btn-sm btn-danger" href="{{route('area.delete', [$item->id])}}">Delete</a>

@@ -26,6 +26,7 @@
                        
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
+                        <a onclick="history.back()" class="btn back_button">Go Back</a>
                     </form>
                 </div>
             </div>

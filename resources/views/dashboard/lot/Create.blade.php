@@ -7,9 +7,6 @@
     <!-- Navbar Start -->
     @include('dashboard.layout.navbar')
     <!-- Navbar End -->
-
-
-
     <div class="container-fluid pt-4 px-4 form_width">
         <div class="row g-4">
             <div class="col-sm-12 col-xl-12">
@@ -22,22 +19,11 @@
                                 <label class="form-label">Name</label>
                                 <input type="text" class="form-control" name="name">
                             </div>
-                            @php
-                            $areas=\DB::table('areas')->get();
-                            @endphp
-                            <div class="mb-3 col-6">
-                                <label class="form-label">Area</label>
-                                <select name="area_id"  class="form-control">
-                                    <option value="">Select Area</option>
-                                    @foreach ($areas as $item)
-                                    <option value="{{$item->id}}" >{{$item->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
                         </div>
 
 
                         <button type="submit" class="btn btn-primary">Register</button>
+                        <a onclick="history.back()" class="btn back_button">Go Back</a>
                     </form>
                 </div>
             </div>

@@ -54,19 +54,23 @@ class LotController extends Controller
             ->get();
         return view('dashboard.lot.list', ['lots' => $lots]);
     }
+    
     public function edit(Request $request, $id)
     {
         $lot = DB::table('lots')->where('id', $id)->first();
+       
         return view('dashboard.lot.edit', ['lot' => $lot]);
     }
 
     public function update(Request $request, $id)
     {
+      
         try {
+            
 
             $request->validate([
                 'name' => 'required|string|max:255',
-                'area_id' => 'required'
+               
             ]);
             $data = $request->all();
             $lot = Lot::find($id);

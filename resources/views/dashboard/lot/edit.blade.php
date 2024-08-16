@@ -14,16 +14,17 @@
         <div class="row g-4">
             <div class="col-sm-12 col-xl-12">
                 <div class="bg-light rounded h-100 p-4">
-                    <h6 class="mb-4">Register Area</h6>
-                    <form method="post" action="{{route('area.update',[$area->id])}}" enctype="multipart/form-data">
+                    <h6 class="mb-4">Edit Lot</h6>
+                    <form method="post" action="{{route('lot.update',[$lot->id])}}" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="mb-3 col-6">
                                 <label class="form-label">Name</label>
-                                <input type="text" class="form-control" value="{{$area->name}}" name="name">
+                                <input type="text" class="form-control" value="{{$lot->name}}" name="name">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Update</button>
+                        <a onclick="history.back()" class="btn back_button">Go Back</a>
                     </form>
                 </div>
             </div>

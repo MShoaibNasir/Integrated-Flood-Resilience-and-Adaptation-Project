@@ -24,7 +24,6 @@
                             </div>
                             @php
                                 $lots = \DB::table('lots')->get();
-                              
                             @endphp
                             <div class="mb-3 col-6">
                                 <label class="form-label">Lots</label>
@@ -39,6 +38,7 @@
 
 
                         <button type="submit" class="btn btn-primary">Register</button>
+                        <a onclick="history.back()" class="btn back_button">Go Back</a>
                     </form>
                 </div>
             </div>

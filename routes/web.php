@@ -14,6 +14,7 @@ use App\Http\Controllers\QuestionTitleController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\LogsController;
 use App\Http\Controllers\OptionsController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -124,6 +125,7 @@ Route::prefix('admin/uc')->middleware('auth.redirect')->group(function () {
     Route::post('/update/{id}', [UcController::class, 'update'])->name('uc.update');
 });
 
+
 // form management
 Route::prefix('admin/form')->middleware('auth.redirect')->group(function () {
     Route::get('/create', [FormController::class, 'create'])->name('form.create');
@@ -157,6 +159,9 @@ Route::prefix('admin/question')->middleware('auth.redirect')->group(function () 
     Route::get('/show/{id}', [QuestionController::class, 'show'])->name('question.show');
     Route::post('/update/{id}', [QuestionController::class, 'update'])->name('question.update');
     Route::get('/view/{id}', [QuestionController::class, 'view'])->name('question.view');
+    Route::get('filter', [QuestionController::class, 'question_filter'])->name('question.filter');
+    Route::get('related', [QuestionController::class, 'related_question'])->name('related.question');
+
 });
 // Options  management
 Route::prefix('admin/options')->middleware('auth.redirect')->group(function () {
@@ -168,17 +173,37 @@ Route::prefix('admin/options')->middleware('auth.redirect')->group(function () {
     Route::get('/show/{id}', [OptionsController::class, 'show'])->name('options.show');
     Route::post('/update/{id}/{title_id}', [OptionsController::class, 'update'])->name('options.update');
     Route::get('/view/{id}', [OptionsController::class, 'view'])->name('options.view');
+    Route::get('filter', [OptionsController::class, 'option_filter'])->name('options.filter');
 });
 // logs  management
 Route::prefix('admin/logs')->middleware('auth.redirect')->group(function () {
     Route::get('/list', [LogsController::class, 'index'])->name('logs.list');
     Route::get('/delete/{id}', [LogsController::class, 'delete'])->name('logs.delete');
 
-  
+
 });
 
 
+// Role  management
 
+Route::prefix('admin/role')->middleware('auth.redirect')->group(function () {
+    Route::get('/create', [RoleController::class, 'create'])->name('role.create');
+    Route::post('/store', [RoleController::class, 'store'])->name('role.store');
+    Route::get('/list', [RoleController::class, 'index'])->name('role.list');
+    Route::get('/delete/{id}', [RoleController::class, 'delete'])->name('role.delete');
+    Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+    Route::post('/update/{id}', [RoleController::class, 'update'])->name('role.update');
+});
+// sub_role  management
+
+Route::prefix('admin/sub/role')->middleware('auth.redirect')->group(function () {
+    Route::get('/create', [RoleController::class, 'create'])->name('role.create');
+    Route::post('/store', [RoleController::class, 'store'])->name('role.store');
+    Route::get('/list', [RoleController::class, 'index'])->name('role.list');
+    Route::get('/delete/{id}', [RoleController::class, 'delete'])->name('role.delete');
+    Route::get('/edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+    Route::post('/update/{id}', [RoleController::class, 'update'])->name('role.update');
+});
 
 
 

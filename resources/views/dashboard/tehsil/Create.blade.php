@@ -35,7 +35,7 @@
                                 </select>
                             </div>
                         </div>
-
+                        <a onclick="history.back()" class="btn back_button">Go Back</a>
 
                         <button type="submit" class="btn btn-primary">Register</button>
                     </form>

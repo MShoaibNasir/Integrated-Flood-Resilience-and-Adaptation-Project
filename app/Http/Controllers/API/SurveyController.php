@@ -156,7 +156,7 @@ class SurveyController extends BaseController
     $result = [];
     foreach ($forms as $form) {
         $result[$form->name] = [
-            'sections' => []
+            'sections' => null
         ];
 
         $sections = DB::table('question_title')->where('form_id', $form->id)
@@ -166,22 +166,26 @@ class SurveyController extends BaseController
         foreach ($sections as $section) {
             $result[$form->name]['sections'][$section->name] = [
                 'section' => $section,
-                'questions' => []
+                'questions' => null
             ];
 
             $questions = DB::table('questions')->where('section_id', $section->id)
-            ->select('id','name','option_id','placeholder','section_id','type')
+            ->select('id','name','option_id','placeholder','section_id','type','answer')
             ->get();
-
+            
             foreach ($questions as $question) {
                 
                 $options = DB::table('options')->where('question_id', $question->id)
-                    ->select('id as option_id', 'name', 'question_id')
-                    ->get();
+                ->select('id as option_id', 'name', 'question_id')
+                ->get();
 
+                if(count($options)<=0){
+                    $options=null;
+                }                    
+                 
                 $result[$form->name]['sections'][$section->name]['questions'][] = [
-                    'question' => $question,
-                    'options' => $options
+                    'question' => $question ,
+                    'options' => $options 
                 ];
             }
         }
